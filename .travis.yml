@@ -1,0 +1,31 @@
+# Cache node_modules and typings for future runs. This does make the builds
+# sometimes fail because of a bad cache but usually this is a huge test
+# performance win.
+cache:
+  directories:
+    - node_modules
+# Use the Travis Docker build system which is faster
+sudo: false
+# Specify to use node
+language: node_js
+# Specify the node versions to run on
+node_js:
+  - "6.11.2"
+# Report code coverage to coveralls after successful test runs
+after_success:
+  - npm run coveralls
+# Do not send build notifications
+notifications:
+  email: false
+deploy:
+  - provider: npm
+    skip_cleanup: true
+    email: yo@rogelioorts.com
+    api_key: $NPM_TOKEN
+    on:
+      branch: master
+  - provider: releases
+    skip_cleanup: true
+    api_key: $GITHUB_TOKEN
+    on:
+      branch: master

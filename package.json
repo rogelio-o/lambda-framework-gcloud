@@ -1,0 +1,56 @@
+{
+  "name": "lambda-framework-gcloud",
+  "version": "1.0.6",
+  "description": "Google Cloud Functions implementation of Lambda Framework",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogelio-o/lambda-framework-aws.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist coverage",
+    "precompile": "npm run clean",
+    "pretest": "npm run compile",
+    "test": "nyc --reporter=html --reporter=text mocha --recursive dist/test/",
+    "posttest": "npm run lint && nyc check-coverage --statements 90 --branches 90 --functions 90 --lines 90",
+    "compile": "tsc",
+    "lint": "tslint --config tslint.json --project tsconfig.json",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "prepublish": "npm-auto-version"
+  },
+  "keywords": [
+    "serverless",
+    "Google",
+    "Cloud",
+    "GCloud",
+    "Functions",
+    "lambda",
+    "framework"
+  ],
+  "author": "Rogelio Orts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.28",
+    "@types/sinon": "^2.3.7",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "mocha": "^3.5.3",
+    "mock-fs": "^4.4.2",
+    "nyc": "^11.3.0",
+    "sinon": "^4.0.2",
+    "tslint": "^5.7.0",
+    "tslint-microsoft-contrib": "^5.0.1",
+    "typescript": "^2.5.2"
+  },
+  "dependencies": {
+    "lambda-framework": "^1.0.20"
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  }
+}
