@@ -8,7 +8,7 @@ import IGCloudFunctionsEvent from "./types/IGCloudFunctionsEvent";
 /**
  * The class that transform the Cloud Functions event and callback to LF raws.
  */
-export default class AWSTransformer {
+export default class GCloudTransformer {
 
   public transformHttpRawEvent(request: Request): IRawEvent {
     const result: IRawEvent = new RawEvent();
