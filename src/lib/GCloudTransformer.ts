@@ -13,7 +13,7 @@ export default class GCloudTransformer {
   public transformHttpRawEvent(request: Request): IRawEvent {
     const result: IRawEvent = new RawEvent();
     result.type = "HTTP";
-    result.original = event;
+    result.original = request;
     result.isHttp = true;
     result.body = request.body;
     result.queryParams = request.query;
@@ -23,8 +23,14 @@ export default class GCloudTransformer {
     result.httpMethod = request.method;
 
     result.headers = {};
-    for (const headerName of Object.keys(request.headers)) {
-      result.headers[headerName] = request.header(headerName);
+    if (request.headers) {
+      for (const headerName of Object.keys(request.headers)) {
+        const headerValue: string = Array.isArray(request.headers[headerName]) ?
+          (request.headers[headerName] as string[]).join("; ")
+            :
+          request.headers[headerName] as string;
+        result.headers[headerName] = headerValue;
+      }
     }
 
     return result;

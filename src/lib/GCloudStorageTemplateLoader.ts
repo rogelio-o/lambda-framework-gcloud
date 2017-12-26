@@ -1,4 +1,5 @@
-import { Bucket, File, Storage } from "@google-cloud/storage";
+import * as Storage from "@google-cloud/storage";
+import { Bucket, File } from "@google-cloud/storage";
 import { ITemplate, ITemplateLoader, Template } from "lambda-framework";
 import * as NodeCache from "node-cache";
 
@@ -32,16 +33,22 @@ export default class GCloudStorageTemplateLoader implements ITemplateLoader {
             .then(
               (data) => {
                 const file: File = data[0];
-                file.download().then((buffer) => {
-                  const content = buffer.toString();
-                  const template: ITemplate = new Template(fileName, content);
-                  this.setToCache(template);
-                  callback(null, template);
-                });
+                file.download().then(
+                  (buffer) => {
+                    const content = buffer.toString();
+                    const template: ITemplate = new Template(fileName, content);
+                    this.setToCache(template);
+                    callback(null, template);
+                  },
+                  (err) => {
+                    callback(err, null);
+                  }
+                );
               },
               (err) => {
                 callback(err, null);
-              });
+              }
+            );
         } else {
           callback(null, cacheValue);
         }

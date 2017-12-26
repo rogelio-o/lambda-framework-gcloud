@@ -25,7 +25,7 @@ export default class GCloudHttpRawCallback implements IRawCallback {
     this._response.send(body);
   }
 
-  public finalize(): void {
+  public finalize(err?: Error): void {
     throw new Error("The HTTP events can not be finalized. Use send or sendError.");
   }
 

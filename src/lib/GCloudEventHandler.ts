@@ -20,7 +20,7 @@ export default class GCloudEventHandler {
     const rawEvent: IRawEvent = this._transformer.transformRawEvent(event);
     const rawCallback: IRawCallback = this._transformer.transformRawCallback(callback);
 
-    this._app.handle(rawEvent, null);
+    this._app.handle(rawEvent, rawCallback);
   }
 
 }

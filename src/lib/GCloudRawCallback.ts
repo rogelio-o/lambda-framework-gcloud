@@ -4,7 +4,7 @@ import IGCloudFunctionsCallback from "./types/IGCloudFunctionsCallback";
 /**
  * The RAW callback implementation for Cloud Functions HTTP responses.
  */
-export default class GCloudHttpRawCallback implements IRawCallback {
+export default class GCloudRawCallback implements IRawCallback {
 
   private _callback: IGCloudFunctionsCallback;
 
