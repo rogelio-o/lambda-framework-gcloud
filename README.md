@@ -31,7 +31,7 @@ import DustTemplateRenderer from "lambda-framework-dustjs";
 const app: IApp = new App();
 ...
 const cachedTime: number = 3000;
-const templateRenderer: ITemplateRenderer = new DustTemplateRenderer(new CloudStorageTemplateLoader("bucket-name", cachedTime));
+const templateRenderer: ITemplateRenderer = new DustTemplateRenderer(new CloudStorageTemplateLoader("PROJECT-ID", "bucket-name", cachedTime));
 app.addTemplateEngine(templateRenderer);
 ...
 ```
