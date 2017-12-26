@@ -25,7 +25,7 @@ export.eventHandler = eventHandler.handle;
 
 ```typescript
 import { App, IApp } from "lambda-framework";
-import { GCloudHttpHandler, GCloudEventHandler, CloudStorageTemplateLoader } from "lambda-framework-gcloud";
+import { GCloudHttpHandler, GCloudEventHandler, GCloudStorageTemplateLoader } from "lambda-framework-gcloud";
 import DustTemplateRenderer from "lambda-framework-dustjs";
 
 const app: IApp = new App();
