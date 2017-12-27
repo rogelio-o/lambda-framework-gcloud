@@ -1,6 +1,6 @@
 # Google Cloud Functions implementation
 
-[![Coverage Status](https://coveralls.io/repos/github/rogelio-o/lambda-framework-gcloud/badge.svg?branch=master)](https://coveralls.io/github/rogelio-o/lambda-framework-gcloud?branch=master) [![Build Status](https://travis-ci.org/rogelio-o/lambda-framework-gcloud.svg?branch=master)](https://travis-ci.org/rogelio-o/lambda-framework-gcloud)
+[![Coverage Status](https://coveralls.io/repos/github/rogelio-o/lambda-framework-gcloud/badge.svg?branch=master)](https://coveralls.io/github/rogelio-o/lambda-framework-gcloud?branch=master) [![Build Status](https://travis-ci.org/rogelio-o/lambda-framework-gcloud.svg?branch=master)](https://travis-ci.org/rogelio-o/lambda-framework-gcloud) [![npm version](https://badge.fury.io/js/lambda-framework-gcloud.svg)](https://badge.fury.io/js/lambda-framework-gcloud)
 
 Google Cloud Functions implementation of Lambda Framework.
 
