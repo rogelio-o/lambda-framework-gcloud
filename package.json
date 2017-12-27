@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^1.5.1",
-    "lambda-framework": "^1.0.22",
+    "lambda-framework": "^1.1.0",
     "node-cache": "^4.1.1"
   },
   "nyc": {
