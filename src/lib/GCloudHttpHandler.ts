@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import { IApp, IRawCallback, IRawEvent } from "lambda-framework";
 import GCloudTransformer from "./GCloudTransformer";
 
@@ -15,7 +14,7 @@ export default class GCloudHttpHandler {
     this._transformer = new GCloudTransformer();
   }
 
-  public handle(request: Request, response: Response): void {
+  public handle(request: any, response: any): void {
     const rawEvent: IRawEvent = this._transformer.transformHttpRawEvent(request);
     const rawCallback: IRawCallback = this._transformer.transformHttpRawCallback(response);
 
