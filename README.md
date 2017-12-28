@@ -15,18 +15,18 @@ import { GCloudHttpHandler, GCloudEventHandler } from "lambda-framework-gcloud"
 const app: IApp = new App();
 ...
 const httpHandler: GCloudHttpHandler = new GCloudHttpHandler(app);
-export.httpHandler = httpHandler.handle;
+export const httpHandle = httpHandler.handle.bind(httpHandler);
 
 const eventHandler: GCloudEventHandler = new GCloudEventHandler(app);
-export.eventHandler = eventHandler.handle;
+export const eventHandle = eventHandler.handle.bind(eventHandler);
 ```
 
 ### Using Cloud Storage to retrieve the templates
 
 ```typescript
-import { App, IApp } from "lambda-framework";
+import { App, IApp, ITemplateRenderer } from "lambda-framework";
 import { GCloudHttpHandler, GCloudEventHandler, GCloudStorageTemplateLoader } from "lambda-framework-gcloud";
-import DustTemplateRenderer from "lambda-framework-dustjs";
+import { DustTemplateRenderer } from "lambda-framework-dustjs";
 
 const app: IApp = new App();
 ...
