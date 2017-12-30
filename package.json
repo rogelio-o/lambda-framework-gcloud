@@ -1,6 +1,6 @@
 {
   "name": "lambda-framework-gcloud",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Google Cloud Functions implementation of Lambda Framework",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -32,9 +32,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.0.4",
-    "@types/express": "^4.11.0",
     "@types/mocha": "^2.2.43",
-    "@types/node": "^8.0.28",
     "@types/sinon": "^2.3.7",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
@@ -50,7 +48,9 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^1.5.1",
-    "lambda-framework": "^1.1.0",
+    "@types/express": "^4.11.0",
+    "@types/node": "^8.0.28",
+    "lambda-framework": "^1.1.1",
     "node-cache": "^4.1.1"
   },
   "nyc": {

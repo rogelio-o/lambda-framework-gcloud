@@ -1,6 +1,6 @@
 # Google Cloud Functions implementation
 
-[![Coverage Status](https://coveralls.io/repos/github/rogelio-o/lambda-framework-gcloud/badge.svg?branch=master)](https://coveralls.io/github/rogelio-o/lambda-framework-gcloud?branch=master) [![Build Status](https://travis-ci.org/rogelio-o/lambda-framework-gcloud.svg?branch=master)](https://travis-ci.org/rogelio-o/lambda-framework-gcloud)
+[![Coverage Status](https://coveralls.io/repos/github/rogelio-o/lambda-framework-gcloud/badge.svg?branch=master)](https://coveralls.io/github/rogelio-o/lambda-framework-gcloud?branch=master) [![Build Status](https://travis-ci.org/rogelio-o/lambda-framework-gcloud.svg?branch=master)](https://travis-ci.org/rogelio-o/lambda-framework-gcloud) [![npm version](https://badge.fury.io/js/lambda-framework-gcloud.svg)](https://badge.fury.io/js/lambda-framework-gcloud)
 
 Google Cloud Functions implementation of Lambda Framework.
 
@@ -15,18 +15,18 @@ import { GCloudHttpHandler, GCloudEventHandler } from "lambda-framework-gcloud"
 const app: IApp = new App();
 ...
 const httpHandler: GCloudHttpHandler = new GCloudHttpHandler(app);
-export.httpHandler = httpHandler.handle;
+export const httpHandle = httpHandler.handle.bind(httpHandler);
 
 const eventHandler: GCloudEventHandler = new GCloudEventHandler(app);
-export.eventHandler = eventHandler.handle;
+export const eventHandle = eventHandler.handle.bind(eventHandler);
 ```
 
 ### Using Cloud Storage to retrieve the templates
 
 ```typescript
-import { App, IApp } from "lambda-framework";
+import { App, IApp, ITemplateRenderer } from "lambda-framework";
 import { GCloudHttpHandler, GCloudEventHandler, GCloudStorageTemplateLoader } from "lambda-framework-gcloud";
-import DustTemplateRenderer from "lambda-framework-dustjs";
+import { DustTemplateRenderer } from "lambda-framework-dustjs";
 
 const app: IApp = new App();
 ...

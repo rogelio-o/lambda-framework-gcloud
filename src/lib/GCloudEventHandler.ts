@@ -1,7 +1,5 @@
 import { IApp, IRawCallback, IRawEvent } from "lambda-framework";
 import GCloudTransformer from "./GCloudTransformer";
-import IGCloudFunctionsCallback from "./types/IGCloudFunctionsCallback";
-import IGCloudFunctionsEvent from "./types/IGCloudFunctionsEvent";
 
 /**
  * The class that implements the Cloud Functions handler for events.
@@ -16,7 +14,7 @@ export default class GCloudEventHandler {
     this._transformer = new GCloudTransformer();
   }
 
-  public handle(event: IGCloudFunctionsEvent, callback: IGCloudFunctionsCallback): void {
+  public handle(event: any, callback: any): void {
     const rawEvent: IRawEvent = this._transformer.transformRawEvent(event);
     const rawCallback: IRawCallback = this._transformer.transformRawCallback(callback);
 
