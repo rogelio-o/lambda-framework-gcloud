@@ -36,11 +36,6 @@ app.addTemplateEngine(templateRenderer);
 ...
 ```
 
-### More info
-
-If you want to know more about how to use App, please visit
-the [Core Project](https://github.com/rogelio-o/lambda-framework).
-
 ## Lambda Framework projects
 
 - [Core](https://github.com/rogelio-o/lambda-framework)
